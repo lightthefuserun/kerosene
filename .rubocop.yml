@@ -1,0 +1,26 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'bin/*'
+  UseCache: true
+  MaxFilesInCache: 3000
+
+Metrics/LineLength:
+  Max: 110
+  IgnoredPatterns: ['(\A|\s)#']
+
+Metrics/BlockLength:
+  Exclude:
+    - 'kerosene.gemspec'
+    - 'spec/**/*.rb'
+
+Documentation:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
