@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
 
   spec.bindir        = 'exe'
   spec.executables   = ['kerosene']
-  spec.extra_rdoc_files = %w[README.md LICENSE]
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rails', Kerosene::RAILS_VERSION
