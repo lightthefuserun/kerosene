@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+source_path = (Pathname.new(__FILE__).dirname + '../lib').expand_path
+$LOAD_PATH << source_path
+
+require 'kerosene'
+
+if ARGV.empty?
+  puts "Please provide a path for the new application"
+  puts
+  puts "See --help for more info"
+  exit 0
+elsif ['-h', '--help'].include? ARGV[0]
+  puts "Usage: kerosene APP_PATH"
+  puts
+  exit 0
+elsif ['-v', '--version'].include? ARGV[0]
+  puts Kerosene::VERSION
+  exit 0
+end
+
+templates_root = File.expand_path(File.join("..", "templates"), File.dirname(__FILE__))
+Kerosene::AppGenerator.source_root templates_root
+Kerosene::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root << templates_root

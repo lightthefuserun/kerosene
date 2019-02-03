@@ -16,6 +16,12 @@ Metrics/BlockLength:
     - 'kerosene.gemspec'
     - 'spec/**/*.rb'
 
+Style/ExpandPathArguments:
+  Enabled: false
+
+AlignHash:
+  EnforcedLastArgumentHashStyle: 'ignore_implicit'
+
 Documentation:
   Enabled: false
 

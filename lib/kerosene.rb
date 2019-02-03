@@ -1,8 +1,4 @@
 # frozen_string_literal: true
 
 require 'kerosene/version'
-
-module Kerosene
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'kerosene/generators/app_generator'
