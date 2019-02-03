@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'rails/generators'
+require 'rails/generators/rails/app/app_generator'
+
 module Kerosene
   class AppGenerator < Rails::Generators::AppGenerator
     hide!
