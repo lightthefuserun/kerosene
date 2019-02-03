@@ -2,17 +2,13 @@
 
 # Kerosene
 
-Kerosene generates rails applications with the customs configuration used at [Light the Fuse and Run](https://www.lightthefuse.run/). 
+Kerosene generates rails applications with the customs configuration used at [Light the Fuse and Run](https://www.lightthefuse.run/).
 
 ## Installation
 
 Install the kerosene gem:
 
     gem install kerosene
-
-Then run:
-
-    suspenders projectname
 
 ## Usage
 
