@@ -13,11 +13,12 @@ Gem::Specification.new do |spec|
   spec.email         = ['wecan@lightthefusea.run']
 
   spec.description = <<-HERE
-  Kerosene is a base Rails project used to quicky ignite and get a working app.
+  Kerosene is a base Rails project used to quicky get a working app off the ground.
+  It includes a custom gemfile. Use it to ignite your rails apps.
   HERE
 
-  spec.summary       = "Generate a Rails app using LTR's template."
-  spec.homepage      = 'http://github.com/lightthefuserun/kerosene/blob/master/Rakefile'
+  spec.summary       = "Generate a Rails app using LTF's template."
+  spec.homepage      = 'https://github.com/lightthefuserun/kerosene'
   spec.license       = 'MIT'
 
   spec.bindir        = 'exe'
