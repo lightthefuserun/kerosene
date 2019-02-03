@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/lightthefuserun/kerosene'
   spec.license       = 'MIT'
 
-  spec.bindir        = 'exe'
+  spec.bindir        = 'bin'
   spec.executables   = ['kerosene']
   spec.require_paths = ['lib']
 
