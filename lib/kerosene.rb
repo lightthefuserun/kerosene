@@ -1,4 +1,6 @@
-require "kerosene/version"
+# frozen_string_literal: true
+
+require 'kerosene/version'
 
 module Kerosene
   class Error < StandardError; end
