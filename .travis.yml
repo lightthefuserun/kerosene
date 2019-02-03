@@ -1,10 +1,14 @@
 language: ruby
 rvm: 2.5.3
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
+sudo: required
 before_install:
-  - git config --global user.name 'Travis CI'
-  - git config --global user.email 'travis-ci@example.com'
   - gem update --system
   - gem install bundler -v '< 2'
 install: bundle install
-script: bundle exec rspec
+addons:
+  postgresql: '9.6'
+script:
+  - bundle exec rspec
