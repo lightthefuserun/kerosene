@@ -1,9 +1,10 @@
-require: rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.5.1
   Exclude:
     - 'bin/*'
+    - 'spec/**/*.rb'
+    - 'tmp/**/*'
   UseCache: true
   MaxFilesInCache: 3000
 
@@ -19,14 +20,23 @@ Metrics/BlockLength:
 Style/ExpandPathArguments:
   Enabled: false
 
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
 AlignHash:
   EnforcedLastArgumentHashStyle: 'ignore_implicit'
 
 Documentation:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/ExampleLength:
   Enabled: false

@@ -1,0 +1,46 @@
+# <%= app_name.humanize %>
+
+Rails app generated with [Kerosene](https://github.com/lightthefuserun/kerosene), the gem to ignite your rails projects :fire:.
+
+## Getting Started
+
+Clone:
+
+    git clone git@github.com:rodloboz/rails-sportspots.git
+
+After you have cloned this repo, run this setup script to set up your machine with the necessary dependencies to run and test this app:
+
+    ./bin/setup
+
+## Run
+
+Dev:
+
+    rails s
+
+url dev:
+
+    http://localhost:3000
+
+## Spec
+
+    rspec
+
+## Developers workflow
+
+- Create a new branch from this pulled branch with a correct name like :
+```
+fix-missing_products
+feature-add_products_charts
+hotfix-user_restrictions
+```
+- Code / test / ...
+- Run the test suite before pushing
+```
+rake
+``
+- Push your branch to remote (origin by default)
+```
+push origin fix-missing_products
+```
+- Open a Pull Request on GitHub with a correct name
