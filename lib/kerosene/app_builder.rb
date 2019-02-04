@@ -2,7 +2,6 @@
 
 module Kerosene
   class AppBuilder < Rails::AppBuilder
-    include Kerosene::Actions
 
     def readme
       template 'README.md.erb', 'README.md'
@@ -41,14 +40,14 @@ module Kerosene
     # end
 
     def app
-      directory "app"
+      directory 'app'
 
-      keep_file "app/assets/images"
+      keep_file 'app/assets/images'
       # TODO: Get rid of javascript folder
       # empty_directory_with_keep_file "app/assets/javascripts/channels" unless options[:skip_action_cable]
 
-      keep_file  "app/controllers/concerns"
-      keep_file  "app/models/concerns"
+      keep_file  'app/controllers/concerns'
+      keep_file  'app/models/concerns'
     end
   end
 end

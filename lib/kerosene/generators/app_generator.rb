@@ -7,25 +7,25 @@ module Kerosene
   class AppGenerator < Rails::Generators::AppGenerator
     hide!
 
-    class_option :database, type: :string, aliases: "-d", default: "postgresql",
-      desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+    class_option :database, type: :string, aliases: '-d', default: 'postgresql',
+      desc: "Configure for selected database (options: #{DATABASES.join('/')})"
 
     class_option  :github, type: :string, default: nil,
                   desc: 'Create Github repository and add remote origin pointed to repo'
 
-    class_option  :version, type: :boolean, aliases: "-v", group: :kerosene,
-                  desc: "Show Kerosene version number and quit"
+    class_option  :version, type: :boolean, aliases: '-v', group: :kerosene,
+                  desc: 'Show Kerosene version number and quit'
 
     class_option :help, type: :boolean, aliases: '-h', group: :kerosene,
-                  desc: "Show this help message and quit"
+                  desc: 'Show this help message and quit'
 
     class_option :skip_test, type: :boolean, default: true, desc: 'Skip Test Unit'
 
     class_option :skip_system_test,
-                 type: :boolean, default: true, desc: "Skip system test files"
+                 type: :boolean, default: true, desc: 'Skip system test files'
 
     class_option :skip_webpack_install, type: :boolean, default: false,
-                                          desc: "Don't run Webpack install"
+                                          desc: 'Don\'t run Webpack install'
 
     def finish_template
       invoke :kerosene_customization
@@ -36,6 +36,7 @@ module Kerosene
       invoke :customize_gemfile
       invoke :setup_development_environment
       invoke :setup_spring
+      invoke :generate_default
       invoke :outro
     end
 
@@ -54,15 +55,20 @@ module Kerosene
       build :setup_spring
     end
 
+    def generate_default
+      run('spring stop')
+      generate('kerosene:views')
+    end
+
     def outro
       say 'Congratulations! You\'ve just ignited rails.'
     end
 
     def run_webpack
-      if webpack_install?
-        rails_command "webpacker:install"
-        rails_command "webpacker:install:#{options[:webpack]}" if options[:webpack] && options[:webpack] != "webpack"
-      end
+      return if webpack_install?
+
+      rails_command 'webpacker:install'
+      rails_command "webpacker:install:#{options[:webpack]}" if webpack_framework?
     end
 
     protected
@@ -75,6 +81,10 @@ module Kerosene
 
     def webpack_install?
       !(options[:skip_javascript] || options[:skip_webpack_install])
+    end
+
+    def webpack_framework?
+      options[:webpack] && options[:webpack] != 'webpack'
     end
   end
 end

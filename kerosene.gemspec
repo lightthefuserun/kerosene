@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', Kerosene::RAILS_VERSION
 
+  spec.add_development_dependency 'byebug'
   spec.add_development_dependency 'rspec', '~> 3.2'
   spec.add_development_dependency 'rubocop', '~> 0.63'
-  spec.add_development_dependency 'byebug'
 end
