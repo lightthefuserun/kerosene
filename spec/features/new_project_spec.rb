@@ -24,6 +24,13 @@ RSpec.describe "Creates a new project with default configuration" do
     )
   end
 
+  it "uses custom Application layout" do
+    application_layout = IO.read("#{project_path}/app/views/layouts/application.html.erb")
+    expect(application_layout).to match(
+      /^<body class="<%= controller_name %> <%= action_name %>">$/,
+    )
+  end
+
   it "adds bin/setup file" do
     expect(File).to exist("#{project_path}/bin/setup")
   end

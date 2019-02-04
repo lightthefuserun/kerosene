@@ -12,10 +12,6 @@ if ARGV.empty?
   puts
   puts "See --help for more info"
   exit 0
-elsif ['-h', '--help'].include? ARGV[0]
-  puts "Usage: kerosene APP_PATH"
-  puts
-  exit 0
 elsif ['-v', '--version'].include? ARGV[0]
   puts Kerosene::VERSION
   exit 0
