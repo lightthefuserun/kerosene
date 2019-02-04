@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'byebug'
 
 RSpec.describe "Creates a new project with default configuration" do
   before(:all) do
@@ -32,8 +33,11 @@ RSpec.describe "Creates a new project with default configuration" do
   end
 
   it "runs webpacker installation" do
-    webpacker_yml = "#{project_path}/config/webpacker.yml"
-    expect(webpacker_yml).to be_an_existing_file
+    webpacker_yml = Pathname.new("#{project_path}/config/webpacker.yml")
+    expect(File).to exist(webpacker_yml)
+
+    node_modules = Pathname.new("#{project_path}/node_modules")
+    expect(node_modules).to be_directory
   end
 
   it "adds bin/setup file" do
