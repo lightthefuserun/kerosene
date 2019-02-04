@@ -31,6 +31,11 @@ RSpec.describe "Creates a new project with default configuration" do
     )
   end
 
+  it "runs webpacker installation" do
+    webpacker_yml = "#{project_path}/config/webpacker.yml"
+    expect(webpacker_yml).to be_an_existing_file
+  end
+
   it "adds bin/setup file" do
     expect(File).to exist("#{project_path}/bin/setup")
   end

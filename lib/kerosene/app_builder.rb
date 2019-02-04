@@ -34,5 +34,21 @@ module Kerosene
     def setup_spring
       bundle_command 'exec spring binstub --all'
     end
+
+    # TODO: Customize package.json
+    # def package_json
+    #   template "package.json"
+    # end
+
+    def app
+      directory "app"
+
+      keep_file "app/assets/images"
+      # TODO: Get rid of javascript folder
+      # empty_directory_with_keep_file "app/assets/javascripts/channels" unless options[:skip_action_cable]
+
+      keep_file  "app/controllers/concerns"
+      keep_file  "app/models/concerns"
+    end
   end
 end
