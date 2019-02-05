@@ -3,4 +3,5 @@
 require 'kerosene/version'
 require 'kerosene/generators/app_generator'
 require 'kerosene/generators/views_generator'
+require 'kerosene/actions'
 require 'kerosene/app_builder'

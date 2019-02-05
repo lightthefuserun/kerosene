@@ -2,6 +2,7 @@
 
 module Kerosene
   class AppBuilder < Rails::AppBuilder
+    include Kerosene::Actions
 
     def readme
       template 'README.md.erb', 'README.md'
