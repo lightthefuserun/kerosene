@@ -5,7 +5,7 @@ require 'rails/generators/rails/app/app_generator'
 
 module Kerosene
   class AppGenerator < Rails::Generators::AppGenerator
-    hide!
+    # hide!
 
     class_option :database, type: :string, aliases: '-d', default: 'postgresql',
       desc: "Configure for selected database (options: #{DATABASES.join('/')})"
@@ -36,7 +36,7 @@ module Kerosene
       invoke :customize_gemfile
       invoke :setup_development_environment
       invoke :setup_spring
-      invoke :generate_default
+      # invoke :generate_default
       invoke :outro
     end
 
@@ -60,15 +60,19 @@ module Kerosene
       generate('kerosene:views')
     end
 
-    def outro
-      say 'Congratulations! You\'ve just ignited rails.'
-    end
-
     def run_webpack
       return if webpack_install?
 
       rails_command 'webpacker:install'
       rails_command "webpacker:install:#{options[:webpack]}" if webpack_framework?
+    end
+
+    def outro
+      say 'Congratulations! You\'ve just ignited rails.'
+    end
+
+    def self.banner
+      "kerosene #{arguments.map(&:usage).join(' ')} [options]"
     end
 
     protected
